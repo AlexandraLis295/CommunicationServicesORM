@@ -20,13 +20,13 @@
         /// В случае если <paramref name="lastName"/> или <paramref name="firstName"/> или <paramref name="dateOfBirth"/> <see langword="null"/>, 
         /// пустая строка или строка, содержащая только пробельные символы.
         /// </exception>
-        public Subscriber(int id, string lastName, string firstName, string patronymic, string dateOfBirth)
+        public Subscriber(int id, string lastName, string firstName, string dateOfBirth, string patronymic = null)
         {
             this.ID = id;
             this.LastName = lastName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(lastName));
             this.FirstName = firstName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(firstName));
-            this.Patronymic = patronymic.TrimOrNull();
             this.DateOfBirth = dateOfBirth.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(dateOfBirth));
+            this.Patronymic = patronymic.TrimOrNull();
         }
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Subscriber"/>
@@ -48,17 +48,18 @@
         /// </summary>
         public virtual string FirstName { get; protected set; }
         /// <summary>
-        /// Отчество
-        /// </summary>
-        public virtual string Patronymic { get; protected set; }
-        /// <summary>
         /// День рождения
         /// </summary>
         public virtual string DateOfBirth { get; protected set; }
         /// <summary>
+        /// Отчество
+        /// </summary>
+        public virtual string Patronymic { get; protected set; }
+        
+        /// <summary>
         /// Полная информация об абоненте
         /// </summary>
-        public virtual string FullData => $"{this.LastName} {this.FirstName[0]}. {this.Patronymic?[0]}. {this.DateOfBirth[0]}.".Trim();
+        public virtual string FullData => $"{this.LastName} {this.FirstName[0]}. {this.DateOfBirth[0..10]}. {this.Patronymic?[0]}.".Trim();
 
         /// <summary>
         /// Множество тарифов
@@ -68,7 +69,7 @@
         /// <summary>
         /// Метод, добавляющий тариф абоненту.
         /// </summary>
-        /// <param name="book"> Добавляемый тариф. </param>
+        /// <param name="tariff"> Добавляемый тариф. </param>
         /// <returns>
         /// Флаг успешности выполнения операции:
         /// <see langword="true"/> – тариф был успешно добавлена,

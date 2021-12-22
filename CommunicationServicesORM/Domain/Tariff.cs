@@ -49,11 +49,11 @@
         /// <summary>
         /// Идентификатор.
         /// </summary>
-        public int ID { get; protected set; }
+        public virtual int ID { get; protected set; }
         /// <summary>
         /// Название
         /// </summary>
-        public string TariffName { get; protected set; }
+        public virtual string TariffName { get; protected set; }
         /// <summary>
         /// Абоненты
         /// </summary>

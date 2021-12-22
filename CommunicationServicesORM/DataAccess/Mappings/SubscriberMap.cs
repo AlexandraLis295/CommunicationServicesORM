@@ -17,6 +17,9 @@
             this.Map(x => x.FirstName)
                 .Not.Nullable();
 
+            this.Map(x => x.DateOfBirth)
+                .Not.Nullable();
+
             this.Map(x => x.Patronymic)
                 .Nullable();
 
