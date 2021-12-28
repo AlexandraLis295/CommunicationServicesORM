@@ -23,7 +23,7 @@ namespace Demo.Tests
         }
 
         [Test]
-        public void ToString_EmptyAuthor_Success()
+        public void ToString_EmptySubscriber_Success()
         {
             // arrange
             var tariff = new Tariff(1, "Безлимит");
@@ -37,7 +37,7 @@ namespace Demo.Tests
         }
 
         [Test]
-        public void Ctor_ValidDataEmptyAuthors_Success()
+        public void Ctor_ValidDataEmptySubscriber_Success()
         {
             // arrange & act & assert
             Assert.DoesNotThrow(() => _ = new Tariff(1, "Безлимит"));
@@ -51,10 +51,10 @@ namespace Demo.Tests
         [TestCase("\n")]
         [TestCase("\r")]
         [TestCase("\t")]
-        public void Ctor_WrongDataNullTitleEmptyAuthors_Fail(string wrongTitle)
+        public void Ctor_WrongDataNullTariffNameEmptySubscribers_Fail(string wrongTariffName)
         {
             // act & assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Tariff(1, wrongTitle));
+            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Tariff(1, wrongTariffName));
         }
 
         [Test]
@@ -65,13 +65,13 @@ namespace Demo.Tests
         [TestCase("\n")]
         [TestCase("\r")]
         [TestCase("\t")]
-        public void Ctor_WrongDataNullTitleEmptyAuthor_Fail(string wrongTitle)
+        public void Ctor_WrongDataNullTariffNameEmptySubscriber_Fail(string wrongTariffName)
         {
             // arrange
-            var author = new Subscriber(1, "Рябова", "Дария", "Кирилловна");
+            var subscriber = new Subscriber(1, "Рябова", "Дария", "Кирилловна");
 
             // act & assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Tariff(1, wrongTitle));
+            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Tariff(1, wrongTariffName));
         }
 
         [Test]

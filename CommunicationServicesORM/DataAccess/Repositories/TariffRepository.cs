@@ -40,19 +40,5 @@
         {
             throw new NotImplementedException();
         }
-
-        ///// <summary>
-        ///// Выдает список авторов без соавторов.
-        ///// </summary>
-        ///// <param name="session"> сессия.</param>
-        ///// <returns> Список авторов без соавторов.</returns>
-        //public IQueryable<Subscriber> AuthorsWithoutCollaborates(ISession session)
-        //{
-        //    return this.Filter(
-        //        session,
-        //        b => b.Subscribers.Count < 2)
-        //        .SelectMany(b => b.Subscribers)
-        //            .Distinct();
-        //}
     }
 }
